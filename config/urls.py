@@ -18,8 +18,11 @@ from django.urls import path
 import debug_toolbar
 from django.conf import settings
 from django.urls import include, path
+from snippets import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('accounts/', include('registration.backends.simple.urls')),
+    path("", views.index, name="index"),
 ]
