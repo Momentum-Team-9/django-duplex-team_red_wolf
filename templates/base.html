@@ -3,12 +3,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Django_Duplex</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Book List</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+      <script src="https://kit.fontawesome.com/c9e30def35.js" crossorigin="anonymous"></script>
   </head>
-  <body>
-    {% block content %} {% endblock %}
+  <body class="">
+      <div class="">
+          <section class="hero is-danger p-5 has-text-centered">
+              <h1 class="title is-white is-uppercase">CODE RED WOLF</h1>
+              <h2 class="subtitle is-white is-uppercase">snippets for all</h2>
+          </section>
+      {% block content %}
+      {% endblock %}
+      </div>
+    <footer>
+      <section class="hero is-small is-dark p-5 has-text-centered">
+        <p class="is-italic is-white">by Sarah and Em</p>
+      </section>
+    </footer>
   </body>
 </html>
