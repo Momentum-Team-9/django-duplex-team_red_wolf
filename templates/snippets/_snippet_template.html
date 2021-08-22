@@ -1,0 +1,22 @@
+{% if snippet.title %}
+    <div class="card">
+        <h2 class="title is-4 is-primary card-header p-3">{{ snippet.title }}
+            <br>
+            {{ snippet.lang }} |  {{ snippet.author }}
+        </h2>
+        {% endif %}
+
+        <div class="card-content">
+
+        <div class="content">
+
+            {% if snippet.snippet %}
+            <div class="highlight"><pre><code>{{ snippet.snippet }}</code></pre></div>
+            {% endif %}
+
+            {% if snippet.public %}
+            <div class="is-italic has-text-warning">Public</div>
+            {% endif %}
+        </div>
+    </div> 
+{% endif %}
