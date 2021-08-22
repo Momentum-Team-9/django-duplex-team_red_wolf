@@ -26,4 +26,5 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path('', views.index, name='index'),
     path('snippets/', views.main_page, name='main_page'),
+    path('snippets/profile', views.profile, name='profile'),
 ]

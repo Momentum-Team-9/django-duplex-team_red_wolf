@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Public Snippets</h1>
+
+<div>
+  <div>
+    {% for snippet in snippets %}
+
+    <h2>{{snippet.title}}</h2>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

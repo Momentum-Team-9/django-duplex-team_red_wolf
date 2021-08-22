@@ -13,3 +13,8 @@ def main_page(request):
     snippets = Snippet.objects.all()
     return render(request, "snippets/main_page.html",
                   {'snippets': snippets})
+
+def profile(request):
+    snippets = Snippet.objects.all()
+    return render(request, "snippets/profile.html",
+                  {'snippets': snippets})
