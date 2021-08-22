@@ -1,5 +1,11 @@
 {% extends "base.html" %} {% block content %}
+<div class="hero is-dark">
+  {% if user.username %}
+<h1 class="subtitle has-text-white p-5 is-uppercase">{{ user.username }}'s Profile</h1>
+</div>
+{% endif %}
 
+<<<<<<< HEAD
 <div class="search-container">
   <div class="field is-grouped">
     <p class="control is-expanded">
@@ -10,15 +16,26 @@
     </p>
   </div>
 </div>
+=======
+<h2 class="title pl-5 pr-5 pt-5 has-text-centered">My Snippets</h2>
+>>>>>>> 43a8d749a81a8711d0232ae8ecb6b7e9a899754f
 
-<div>
-  <div>
+
+
+<section class="is-flex">
+  <div class="container pt-5">
     {% for snippet in snippets %}
-
-    <h2>{{snippet.title}}</h2>
-
+    <div class="snippet">
+      <div>{% include 'snippets/_snippet_template.html' %}
+        <footer class="card-footer">
+        <a href="{% url 'edit_snippet' pk=snippet.pk %}" class="card-footer-item">Edit</a><br>    
+        <a href="{% url 'delete_snippet' pk=snippet.pk %}"  class="card-footer-item has-text-danger">Delete</a>
+        </footer>
+      </div>
+    </div>
     {% endfor %}
   </div>
+<<<<<<< HEAD
 </div>
 <style>
   .search-container {
@@ -26,4 +43,8 @@
     margin: 20px;
   }
 </style>
+=======
+</section>
+
+>>>>>>> 43a8d749a81a8711d0232ae8ecb6b7e9a899754f
 {% endblock %}
