@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero is-dark p-5">
+    <h1 class="title is-white">Delete Snippet</h1>
+</section>
+
+{% load bulma_tags %}
+{# Display a form #}
+<div class="m-5">
+    <form action="{% url 'delete_snippet' pk=snippet.pk %}" method="POST">
+        {% csrf_token %}
+        <p class="pt-5">Are you sure you want to delete the snippet {{ snippet.title }}?</p>
+        <div>
+        <div class="field">
+            <button type="submit" class="button is-primary mt-5">Delete</button>
+        </div>
+        <div>
+        <a href="{% url 'main_page' %}" class="has-text-danger pl-4">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
