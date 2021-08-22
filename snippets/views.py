@@ -12,4 +12,4 @@ def index(request):
 def main_page(request):
     snippets = Snippet.objects.all()
     return render(request, "snippets/main_page.html",
-                  {"snippets": snippets})
+                  {'snippets': snippets})

@@ -24,6 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path('accounts/', include('registration.backends.simple.urls')),
-    path("", views.index, name="index"),
+    path('', views.index, name='index'),
     path('snippets/', views.main_page, name='main_page'),
 ]
