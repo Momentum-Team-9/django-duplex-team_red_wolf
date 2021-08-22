@@ -1,11 +1,20 @@
 {% extends "base.html" %} {% block content %}
 
-<h1>Snippets</h1>
-<form>
-  <input type="text" placeholder="search" />
-  <button type="submit">Search</button>
-</form>
-<section class="is-flex">
+
+
+<div class="search-container">
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <input class="input" type="text" placeholder="Search all snippets">
+    </p>
+    <p class="control">
+      <a class="button is-info">
+        Search
+      </a>
+    </p>
+  </div>
+</div>
+
   <div class="container pt-5">
     {% for snippet in snippets %}
     <div class="snippet">
@@ -14,5 +23,13 @@
     {% endfor %}
   </div>
 </div>
+
+<style>
+  .search-container{
+    
+    width: 40%;
+    margin: 20px;
+  }
+</style>
 
 {% endblock %}

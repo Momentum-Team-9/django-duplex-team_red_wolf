@@ -1,6 +1,15 @@
 {% extends "base.html" %} {% block content %}
 
-<h1>Public Snippets</h1>
+<div class="search-container">
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <input class="input" type="text" placeholder="Search your snippets" />
+    </p>
+    <p class="control">
+      <a class="button is-info"> Search </a>
+    </p>
+  </div>
+</div>
 
 <div>
   <div>
@@ -11,5 +20,10 @@
     {% endfor %}
   </div>
 </div>
-
+<style>
+  .search-container {
+    width: 40%;
+    margin: 20px;
+  }
+</style>
 {% endblock %}
