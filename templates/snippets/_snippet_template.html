@@ -1,8 +1,7 @@
 {% if snippet.title %}
-    <div class="card">
-        <h2 class="title is-4 is-primary card-header p-3">{{ snippet.title }}
-            <br>
-            {{ snippet.lang }} |  {{ snippet.author }}
+    <div class="card p-5">
+        <h2 class="title is-4 is-primary card-header p-3">
+            {{ snippet.title }} | {{ snippet.lang }}
         </h2>
         {% endif %}
 
@@ -15,8 +14,21 @@
             {% endif %}
 
             {% if snippet.public %}
-            <div class="is-italic has-text-warning">Public</div>
+            <div class="is-italic has-text-white has-background-primary pl-3 pr-3 pt-1 pb-1">
+            <p style="text-align:left;">
+                Public
             {% endif %}
+            {% if snippet.author %}
+                <span style="float:right;">
+                    by: {{ snippet.author }}
+                </span>
+            </p>
+            {% endif %}
+            </div>
+            <div>
+                
+            </div>
+            
         </div>
     </div> 
-{% endif %}
+
