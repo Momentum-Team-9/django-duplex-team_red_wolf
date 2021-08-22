@@ -5,11 +5,11 @@
   <input type="text" placeholder="search" />
   <button type="submit">Search</button>
 </form>
-<div>
-  <div>
+<section class="is-flex">
+  <div class="container pt-5">
     {% for snippet in snippets %}
     <div class="snippet">
-      <h2>{{snippet.title}}</h2>
+      <div>{% include 'snippets/_snippet_template.html' %}</div>
     </div>
     {% endfor %}
   </div>
