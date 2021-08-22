@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'bulma',
     'snippets',
+    
 ]
 
 MIDDLEWARE = [
@@ -144,6 +146,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "snippets.User"
 
+REGISTRATION_OPEN = True
+
 SIMPLE_BACKEND_REDIRECT_URL = "/"
+
+LOGOUT_REDIRECT_URL = 'index'
 
 REGISTRATION_AUTO_LOGIN = True

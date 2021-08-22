@@ -9,6 +9,7 @@ django-environ = "*"
 django-extensions = "*"
 django-debug-toolbar = "*"
 django-registration-redux = "*"
+django-bulma = "*"
 
 [dev-packages]
 
