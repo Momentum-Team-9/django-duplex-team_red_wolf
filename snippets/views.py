@@ -23,7 +23,11 @@ def main_page(request):
 
 @login_required
 def profile(request):
-    snippets = Snippet.objects.all()
+    all_snippets = Snippet.objects.all()
+    snippets = []
+    for snippet in all_snippets:
+        if snippet.author == request.user:
+            snippets.append(snippet)
     return render(request, "snippets/profile.html",
                 {'snippets': snippets})
 
