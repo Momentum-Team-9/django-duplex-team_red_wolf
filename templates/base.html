@@ -5,11 +5,51 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Book List</title>
+      <title>Code Red Wolf</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
       <script src="https://kit.fontawesome.com/c9e30def35.js" crossorigin="anonymous"></script>
   </head>
   <body class="">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'index' %}">CODE RED WOLF</a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Public Snippets
+          </a>
+    
+          <a class="navbar-item">
+            My Snippets
+          </a>
+
+          <a class="navbar-item">
+            New Snippet
+          </a>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-danger" href="/accounts/register"> 
+                <strong>Register</strong>
+              </a>
+              <a class="button is-light" href="/accounts/login">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
       <div class="">
           <section class="hero is-danger p-5 has-text-centered">
               <h1 class="title is-white is-uppercase">CODE RED WOLF</h1>
@@ -18,10 +58,13 @@
       {% block content %}
       {% endblock %}
       </div>
-    <footer>
-      <section class="hero is-small is-dark p-5 has-text-centered">
-        <p class="is-italic is-white">by Sarah and Em</p>
-      </section>
-    </footer>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Code Red Wolf</strong> by Sarah and Em. 
+          </p>
+        </div>
+      </footer>
   </body>
+  
 </html>
