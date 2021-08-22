@@ -5,6 +5,16 @@
 </div>
 {% endif %}
 
+<div class="search-container">
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <input class="input" type="text" placeholder="Search your snippets" />
+    </p>
+    <p class="control">
+      <a class="button is-info"> Search </a>
+    </p>
+  </div>
+</div>
 <h2 class="title pl-5 pr-5 pt-5 has-text-centered">My Snippets</h2>
 
 
@@ -22,6 +32,12 @@
     </div>
     {% endfor %}
   </div>
+</div>
 </section>
-
+<style>
+  .search-container {
+    width: 40%;
+    margin: 20px;
+  }
+</style>
 {% endblock %}

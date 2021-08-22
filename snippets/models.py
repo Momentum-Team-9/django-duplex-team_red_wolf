@@ -15,3 +15,7 @@ class Snippet(models.Model):
     snippet = models.TextField(blank=True, null=True)
     public = models.BooleanField(default=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.title}"
+

@@ -1,3 +1,4 @@
+import snippets
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User, Snippet
 from .forms import SnippetForm
@@ -12,13 +13,21 @@ def index(request):
 
 @login_required
 def main_page(request):
-    snippets = Snippet.objects.all()
+    all_snippets = Snippet.objects.all()
+    snippets = []
+    for snippet in all_snippets:
+        if snippet.public == True:
+            snippets.append(snippet)
     return render(request, "snippets/main_page.html",
                 {'snippets': snippets})
 
 @login_required
 def profile(request):
-    snippets = Snippet.objects.all()
+    all_snippets = Snippet.objects.all()
+    snippets = []
+    for snippet in all_snippets:
+        if snippet.author == request.user:
+            snippets.append(snippet)
     return render(request, "snippets/profile.html",
                 {'snippets': snippets})
 
