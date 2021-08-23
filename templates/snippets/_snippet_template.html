@@ -1,10 +1,9 @@
-{% if snippet.title %}
-
 {% load static %}
 {% block javascript %}
 <script src="{% static 'js/prism.js' %}" defer></script>
 {% endblock javascript %}
 
+{% if snippet.title %}
     <div class="card p-5">
         <h2 class="title is-4 is-primary card-header p-3">
             {{ snippet.title }} | {{ snippet.lang }}
