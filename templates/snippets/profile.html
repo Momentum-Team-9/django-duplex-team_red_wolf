@@ -17,10 +17,8 @@
 </div>
 <h2 class="title pl-5 pr-5 pt-5 has-text-centered">My Snippets</h2>
 
-
-
 <section class="is-flex">
-  <div class="container pt-5">
+  <div class="container pt-5 column is-two-thirds">
     {% for snippet in snippets %}
     <div class="snippet">
       <div>{% include 'snippets/_snippet_template.html' %}
@@ -30,6 +28,7 @@
         </footer>
       </div>
     </div>
+    <br>
     {% endfor %}
   </div>
 </div>
