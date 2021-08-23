@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'bulma',
     'snippets',
+    'django_gravatar',
     
 ]
 
