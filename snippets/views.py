@@ -32,6 +32,18 @@ def profile(request):
                 {'snippets': snippets})
 
 @login_required
+def user_profile(request):
+    all_snippets = Snippet.objects.all()
+    snippets = []
+    for snippet in all_snippets:
+        if snippet.public == True:
+            elif snippet.author == request.user:
+            snippets.append(snippet)
+            return render(request, "snippets/user_profile.html",
+                {'snippets': snippets})
+
+
+@login_required
 def add_snippet(request):
     if request.method == 'GET':
         form = SnippetForm()
