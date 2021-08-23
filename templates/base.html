@@ -1,10 +1,10 @@
-{% load static %} {% load bulma_tags %}
+{% load static %} {% load bulma_tags %} 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Red Wolf</title>
+    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
@@ -13,6 +13,8 @@
       src="https://kit.fontawesome.com/c9e30def35.js"
       crossorigin="anonymous"
     ></script>
+    {% block javascript %}{% endblock %}
+    <title>Code Red Wolf</title>
   </head>
   <body class="">
     <nav class="navbar" role="navigation" aria-label="main navigation">

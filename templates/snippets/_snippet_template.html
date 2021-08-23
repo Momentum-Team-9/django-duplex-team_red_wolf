@@ -1,4 +1,10 @@
 {% if snippet.title %}
+
+{% load static %}
+{% block javascript %}
+<script src="{% static 'js/prism.js' %}" defer></script>
+{% endblock javascript %}
+
     <div class="card p-5">
         <h2 class="title is-4 is-primary card-header p-3">
             {{ snippet.title }} | {{ snippet.lang }}
@@ -10,7 +16,7 @@
         <div class="content">
 
             {% if snippet.snippet %}
-            <div class="highlight"><pre><code>{{ snippet.snippet }}</code></pre></div>
+            <div class="highlight"><pre><code.lang-{{ snippet.lang }}>{{ snippet.snippet }}</code></pre></div>
             {% endif %}
 
             {% if snippet.public %}
