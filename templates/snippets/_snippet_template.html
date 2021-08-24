@@ -37,7 +37,9 @@
           <p style="text-align: left">
             Private {% endif %} {% if snippet.author %}
             <span style="float: right">
-              <a href="{% url 'user_profile' %}">by: {{ snippet.author }}</a>
+              <a href="{% url 'user_profile' username=snippet.author %}"
+                >by: {{ snippet.author }}</a
+              >
             </span>
           </p>
           {% endif %}
