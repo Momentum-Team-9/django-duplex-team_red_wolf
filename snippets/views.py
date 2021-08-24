@@ -32,6 +32,13 @@ def profile(request):
                 {'snippets': snippets})
 
 @login_required
+def user_profile(request, username):
+   user = get_object_or_404(User, username=username)
+   snippets = user.snippets.filter(public=True)
+   
+   return render(request, "snippets/user_profile.html", {"snippets": snippets, "username": username})
+
+@login_required
 def add_snippet(request):
     if request.method == 'GET':
         form = SnippetForm()

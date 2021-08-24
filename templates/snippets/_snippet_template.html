@@ -4,13 +4,13 @@
 {% endblock javascript %}
 
 {% if snippet.title %}
-    <div class="card p-5">
-        <h2 class="title is-4 is-primary card-header p-3">
-            {{ snippet.title }} | {{ snippet.lang }}
-        </h2>
-        {% endif %}
+<div class="card p-5">
+  <h2 class="title is-4 is-primary card-header p-3">
+    {{ snippet.title }} | {{ snippet.lang }}
+  </h2>
+  {% endif %}
 
-        <div class="card-content">
+  <div class="card-content">
 
         <div class="content">
 
@@ -29,7 +29,7 @@
             {% endif %}
             {% if snippet.author %}
                 <span style="float:right;">
-                    by: {{ snippet.author }}
+                  <a href="{% url 'user_profile' username=snippet.author %}">by: {{ snippet.author }}</a>
                 </span>
             </p>
             {% endif %}
@@ -37,7 +37,9 @@
             <div>
                 
             </div>
-            
         </div>
-    </div> 
-
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block content %} {% load gravatar %} 
+{% for snippet in snippets %}
+<div class="snippet mb-6">
+  <div>{% include 'snippets/_snippet_template.html' %}</div>
+</div>
+{% endfor %} 
+{% endblock %}
