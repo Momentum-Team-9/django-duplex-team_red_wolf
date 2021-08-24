@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block content %}
+{% load gravatar %}
+
+<div class="hero is-dark">
+  {% if user.username %}
+<h1 class="subtitle has-text-white p-5 is-uppercase">{% gravatar user.email 50 "user@example.com" %} {{ user.username }}'s Profile</h1>
+</div>
+{% endif %}
+
+<div class="search-container">
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <input class="input" type="text" placeholder="Search your snippets" />
+    </p>
+    <p class="control">
+      <a class="button is-info"> Search </a>
+    </p>
+  </div>
+</div>
+<h2 class="title pl-5 pr-5 pt-5 has-text-centered">My Snippets</h2>
+
+<section class="is-flex">
+  <div class="container pt-5 column is-two-thirds">
+    {% for snippet in snippets %}
+    <div class="snippet">
+      <div>{% include 'snippets/_snippet_template.html' %}
+        <footer class="card-footer">
+        <a href="{% url 'edit_snippet' pk=snippet.pk %}" class="card-footer-item">Edit</a><br>    
+        <a href="{% url 'delete_snippet' pk=snippet.pk %}"  class="card-footer-item has-text-danger">Delete</a>
+        </footer>
+      </div>
+    </div>
+    <br>
+    {% endfor %}
+  </div>
+</div>
+</section>
+<style>
+  .search-container{
+    
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+</style>
+{% endblock %}

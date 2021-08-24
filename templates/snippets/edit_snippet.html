@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-dark p-5">
+    <h1 class="title is-white">Edit Snippet</h1>
+</section>
+
+{% load bulma_tags %}
+{# Display a form #}
+
+<div class="control m-5">
+    <form class="form" action="{% url 'edit_snippet' pk=snippet.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form|bulma }}
+    <div class="field">
+        <button type="submit" class="button is-primary">Update</button>
+    </div>
+</form>
+<br>
+<div>
+<a href="{% url 'delete_snippet' pk=snippet.pk %}"  class="button has-text-danger">Delete this Snippet</a>
+</div>
+{% endblock %}
