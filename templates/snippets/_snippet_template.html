@@ -1,38 +1,49 @@
 {% if snippet.title %}
-    <div class="card p-5">
-        <h2 class="title is-4 is-primary card-header p-3">
-            {{ snippet.title }} | {{ snippet.lang }}
-        </h2>
-        {% endif %}
+<div class="card p-5">
+  <h2 class="title is-4 is-primary card-header p-3">
+    {{ snippet.title }} | {{ snippet.lang }}
+  </h2>
+  {% endif %}
 
-        <div class="card-content">
+  <div class="card-content">
+    <div class="content">
+      {% if snippet.snippet %}
+      <div class="highlight">
+        <pre><code>{{ snippet.snippet }}</code></pre>
+      </div>
+      {% endif %} {% if snippet.public %}
+      <div
+        class="
+          is-italic
+          has-text-white has-background-primary
+          pl-3
+          pr-3
+          pt-1
+          pb-1
+        "
+      >
+        <p style="text-align: left">Public {% else %}</p>
 
-        <div class="content">
-
-            {% if snippet.snippet %}
-            <div class="highlight"><pre><code>{{ snippet.snippet }}</code></pre></div>
-            {% endif %}
-
-            {% if snippet.public %}
-            <div class="is-italic has-text-white has-background-primary pl-3 pr-3 pt-1 pb-1">
-            <p style="text-align:left;">
-                Public
-            {% else %}
-            <div class="is-italic has-text-white has-background-info pl-3 pr-3 pt-1 pb-1">
-                <p style="text-align:left;">
-                    Private
-            {% endif %}
-            {% if snippet.author %}
-                <span style="float:right;">
-                    by: {{ snippet.author }}
-                </span>
-            </p>
-            {% endif %}
-            </div>
-            <div>
-                
-            </div>
-            
+        <div
+          class="
+            is-italic
+            has-text-white has-background-info
+            pl-3
+            pr-3
+            pt-1
+            pb-1
+          "
+        >
+          <p style="text-align: left">
+            Private {% endif %} {% if snippet.author %}
+            <span style="float: right">
+              <a href="{% url 'user_profile' %}">by: {{ snippet.author }}</a>
+            </span>
+          </p>
+          {% endif %}
         </div>
-    </div> 
-
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

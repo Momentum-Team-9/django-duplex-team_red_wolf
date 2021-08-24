@@ -37,7 +37,7 @@ def user_profile(request):
     snippets = []
     for snippet in all_snippets:
         if snippet.public == True:
-            elif snippet.author == request.user:
+            
             snippets.append(snippet)
             return render(request, "snippets/user_profile.html",
                 {'snippets': snippets})
