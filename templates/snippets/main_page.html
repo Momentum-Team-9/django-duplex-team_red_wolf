@@ -14,22 +14,26 @@
     </p>
   </div>
 </div>
-
-  <div class="container pt-5">
+<h2 class="title pl-5 pr-5 pt-5 has-text-centered">Global Public Snippets</h2>
+  <section class="container pt-5">
     {% for snippet in snippets %}
     <div class="snippet mb-6">
       <div>{% include 'snippets/_snippet_template.html' %}
       </div>
     </div>
+    <br>
     {% endfor %}
   </div>
 </div>
+</section>
 
 <style>
   .search-container{
     
     width: 40%;
-    margin: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 </style>
 
