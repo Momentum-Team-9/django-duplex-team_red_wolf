@@ -78,7 +78,7 @@ def delete_snippet(request, pk):
 
 def search(request):
     query = request.GET.get("query")
-    search_results = Snippet.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query), public=True)
+    search_results = Snippet.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(lang__icontains=query), public=True)
     
 
     return render(request, "snippets/main_page.html", {"snippets": search_results})
