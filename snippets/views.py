@@ -66,6 +66,7 @@ def edit_snippet(request, pk):
 
     return render(request, 'snippets/edit_snippet.html', {'form': form, 'snippet': snippet})
 
+
 @login_required
 def delete_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
@@ -79,6 +80,5 @@ def delete_snippet(request, pk):
 def search(request):
     query = request.GET.get("query")
     search_results = Snippet.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(lang__icontains=query), public=True)
-    
 
     return render(request, "snippets/main_page.html", {"snippets": search_results})
