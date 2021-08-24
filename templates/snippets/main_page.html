@@ -4,14 +4,14 @@
 
 <div class="search-container">
   <div class="field is-grouped">
-    <p class="control is-expanded">
-      <input class="input" type="text" placeholder="Search all snippets">
+    <form class="control is-expanded" action={% url "snippet_search" %} method="GET">
+      <input class="input" type="text" name="query" placeholder="Search all snippets">
     </p>
     <p class="control">
-      <a class="button is-info">
+      <a class="button is-info" type="submit" type="submit">
         Search
       </a>
-    </p>
+    </form>
   </div>
 </div>
 <h2 class="title pl-5 pr-5 pt-5 has-text-centered">Global Public Snippets</h2>

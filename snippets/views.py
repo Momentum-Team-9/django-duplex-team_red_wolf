@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import User, Snippet
 from .forms import SnippetForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -33,10 +34,10 @@ def profile(request):
 
 @login_required
 def user_profile(request, username):
-   user = get_object_or_404(User, username=username)
-   snippets = user.snippets.filter(public=True)
-   
-   return render(request, "snippets/user_profile.html", {"snippets": snippets, "username": username})
+    user = get_object_or_404(User, username=username)
+    snippets = user.snippets.filter(public=True)
+    
+    return render(request, "snippets/user_profile.html", {"snippets": snippets, "username": username})
 
 @login_required
 def add_snippet(request):
@@ -74,3 +75,10 @@ def delete_snippet(request, pk):
 
     return render(request, "snippets/delete_snippet.html",
         {"snippet": snippet})
+
+def search(request):
+    query = request.GET.get("query")
+    search_results = Snippet.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query), public=True)
+    
+
+    return render(request, "snippets/main_page.html", {"snippets": search_results})
