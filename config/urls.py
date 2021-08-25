@@ -21,15 +21,18 @@ from django.urls import include, path
 from snippets import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('__debug__/', include(debug_toolbar.urls)),
-    path('accounts/', include('registration.backends.simple.urls')),
-    path('', views.index, name='index'),
-    path('snippets/', views.main_page, name='main_page'),
-    path('snippets/profile', views.profile, name='profile'),
-    path('snippets/new/', views.add_snippet, name='add_snippet'),
-    path('snippets/<int:pk>/edit/', views.edit_snippet, name='edit_snippet'),
-    path('snippets/<int:pk>/delete/', views.delete_snippet, name='delete_snippet'),
-    path('snippets/<str:username>/user_profile', views.user_profile, name='user_profile'),
+    path("admin/", admin.site.urls),
+    path("__debug__/", include(debug_toolbar.urls)),
+    path("accounts/", include("registration.backends.simple.urls")),
+    path("", views.index, name="index"),
+    path("snippets/", views.main_page, name="main_page"),
+    path("snippets/profile", views.profile, name="profile"),
+    path("snippets/new/", views.add_snippet, name="add_snippet"),
+    path("snippets/<int:pk>/edit/", views.edit_snippet, name="edit_snippet"),
+    path("snippets/<int:pk>/delete/", views.delete_snippet, name="delete_snippet"),
+    path(
+        "snippets/<str:username>/user_profile", views.user_profile, name="user_profile"
+    ),
     path("search/", views.search, name="snippet_search"),
+    path("profile_search/", views.profile_search, name="profile_search"),
 ]
