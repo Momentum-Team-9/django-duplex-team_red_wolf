@@ -35,4 +35,5 @@ urlpatterns = [
     ),
     path("search/", views.search, name="snippet_search"),
     path("profile_search/", views.profile_search, name="profile_search"),
+    path("copy/<int:pk>/", views.copy_snippet, name="copy_snippet"),
 ]
