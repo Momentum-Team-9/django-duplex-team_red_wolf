@@ -83,6 +83,7 @@ def delete_snippet(request, pk):
     return render(request, "snippets/delete_snippet.html", {"snippet": snippet})
 
 
+@login_required
 def search(request):
     query = request.GET.get("query")
     search_results = Snippet.objects.filter(
@@ -95,6 +96,7 @@ def search(request):
     return render(request, "snippets/main_page.html", {"snippets": search_results})
 
 
+@login_required
 def profile_search(request):
     user = get_object_or_404(User, username=request.user)
     profile_snippets = user.snippets.filter()
@@ -110,3 +112,27 @@ def profile_search(request):
         "snippets/profile.html",
         {"profile": profile, "snippets": search_results},
     )
+
+
+@login_required
+def copy_snippet(request, pk):
+    original = get_object_or_404(Snippet, pk=pk)
+    user = request.user
+    # count = original.copy_count
+    if request.method == "POST":
+        form = SnippetForm(data=request.POST)
+        if form.is_valid():
+            snippet = form.save(commit=False)
+            snippet.author = request.user
+            snippet.snippet = original.snippet
+            snippet.original_snippet = original
+            snippet.title = original.title
+            snippet.lang = original.lang
+            # snippet.copy_count = int(count)
+            # snippet.copy_count += 1
+            snippet.save()
+            return redirect("profile")
+    else:
+        form = SnippetForm()
+
+    return render(request, "snippets/profile.html", {"form": form})

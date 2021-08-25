@@ -9,7 +9,10 @@
     <h2 class="title is-4 is-primary card-header p-3">
       {{ snippet.title }} | {{ snippet.lang }}  
     </h2>
-    <button class="button is-primary">Copy</button>
+    <form action="{% url 'copy_snippet' pk=snippet.pk %}" method="POST">
+      {% csrf_token %}
+      <button class="button is-primary">Copy</button>
+    </form>
 </div>
   {% endif %}
 
@@ -32,7 +35,13 @@
             {% endif %}
             {% if snippet.author %}
                 <span style="float:right;">
-                  <a href="{% url 'user_profile' username=snippet.author %}">by: {{ snippet.author }}</a>
+                  <a href="{% url 'user_profile' username=snippet.author %}">{{ snippet.author }}</a>
+                </span>
+            </p>
+            {% endif %}
+            {% if snippet.original_snippet %}
+                <span style="float:right;">
+                  <a href="{% url 'user_profile' username=snippet.original_snippet.author.username %}">copied from: {{ snippet.original_snippet.author }}</a>
                 </span>
             </p>
             {% endif %}

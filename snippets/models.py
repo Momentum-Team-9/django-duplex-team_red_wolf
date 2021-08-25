@@ -9,13 +9,16 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
+
 class Snippet(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     lang = models.CharField(max_length=255, blank=True, null=True)
     snippet = models.TextField(blank=True, null=True)
     public = models.BooleanField(default=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="snippets")
+    original_snippet = models.ForeignKey(
+        "self", on_delete=models.CASCADE, null=True, related_name="snippet_copies"
+    )
 
     def __str__(self):
         return f"{self.title}"
-
