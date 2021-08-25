@@ -5,9 +5,12 @@
 
 {% if snippet.title %}
 <div class="card p-5">
-  <h2 class="title is-4 is-primary card-header p-3">
-    {{ snippet.title }} | {{ snippet.lang }}
-  </h2>
+  <div class="snippet-header-cont">
+    <h2 class="title is-4 is-primary card-header p-3">
+      {{ snippet.title }} | {{ snippet.lang }}  
+    </h2>
+    <button class="button is-primary is-rounded">Copy</button>
+</div>
   {% endif %}
 
   <div class="card-content">
@@ -19,7 +22,7 @@
             {% endif %}
 
             {% if snippet.public %}
-            <div class="is-italic has-text-white has-background-primary pl-3 pr-3 pt-1 pb-1">
+            <div class="is-italic has-text-success has-background-light pl-3 pr-3 pt-1 pb-1">
             <p style="text-align:left;">
                 Public
             {% else %}
@@ -43,3 +46,12 @@
     </div>
   </div>
 </div>
+<style>
+    .snippet-header-cont {
+    
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 29px 0px 29px;
+    align-items: center;
+  }
+</style>
