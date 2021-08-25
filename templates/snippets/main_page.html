@@ -1,7 +1,10 @@
 {% extends "base.html" %} {% block content %}
-
-
-
+{% load gravatar %}
+<div class="hero is-dark">
+  {% if user.username %}
+<h1 class="subtitle has-text-white p-5 is-capitalized">{% gravatar user.email 50 "user@example.com" %} welcome, {{ user.username }}!</h1>
+</div>
+{% endif %}
 <div class="search-container">
   <div class="field is-grouped">
     <form class="control is-expanded" action={% url "snippet_search" %} method="GET">
@@ -35,6 +38,9 @@
     margin-top: 50px;
     margin-bottom: 50px;
   }
+  form {
+    display: flex;
+    }
 </style>
 
 {% endblock %}
