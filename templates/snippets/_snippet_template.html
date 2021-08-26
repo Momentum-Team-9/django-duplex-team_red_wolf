@@ -38,7 +38,7 @@
         {% endif %} 
         {% if snippet.author %}
           <span style="float: right">
-            <a href="{% url 'user_profile' username=snippet.author %}" class=py-3>   {{ snippet.snippet.author }}</a>
+            <a href="{% url 'user_profile' username=snippet.author %}" class=py-3>   {{ snippet.author }}</a>
           </span>
         {% endif %}
         {% if snippet.original_snippet %}
