@@ -40,6 +40,6 @@ class Snippet(models.Model):
         blank=True,
         related_name="snippet_copies",
     )
-
+    copy_count = models.IntegerField(default=0)
     def __str__(self):
         return f"{self.title}"
