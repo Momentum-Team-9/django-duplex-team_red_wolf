@@ -33,11 +33,13 @@ def profile(request):
 
 @login_required
 def user_profile(request, username):
-    snippets = request.user.snippets.filter(public=True)
+    user = get_object_or_404(User, username=username)
+    snippets = user.snippets.filter(public=True)
+
     return render(
         request,
         "snippets/user_profile.html",
-        {"snippets": snippets, "username": username, "user": request.user},
+        {"snippets": snippets, "username": username},
     )
 
 
