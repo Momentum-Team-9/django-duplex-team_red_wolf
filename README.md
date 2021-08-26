@@ -1,8 +1,11 @@
 # Code Red Wolf (code snippet sharing app)
 
+The primary function of our app is for users to post and share code snippets. 
+
+Example snippet:
 ![imagesnippet.png](imagesnippet.png)
 
-The primary function of our app is for users to post and share code snippets. Each user has a public profile with the snippets that they've created and shared. After posting or copying a snippet the user has the ability to edit their snippets, and choose whether to share or hold it in a private library. A snippet displays the number of times it has been copied as well as a link back to the user profile from which it was copied. The user also has the ability to search through global snippets as well as their own. 
+Each user has a public profile with the snippets that they've created and shared. After posting or copying a snippet the user has the ability to edit their snippets, and choose whether to share or hold it in a private library. A snippet displays the number of times it has been copied as well as a link back to the user profile from which it was copied. The user also has the ability to search through global snippets as well as their own. 
 
 ## Installation 
 
