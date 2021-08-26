@@ -118,7 +118,7 @@ def profile_search(request):
 def copy_snippet(request, pk):
     original = get_object_or_404(Snippet, pk=pk)
     user = request.user
-    # count = original.copy_count
+    count = original.copy_count
     if request.method == "POST":
         form = SnippetForm(data=request.POST)
         if form.is_valid():
@@ -128,11 +128,10 @@ def copy_snippet(request, pk):
             snippet.original_snippet = original
             snippet.title = original.title
             snippet.lang = original.lang
-            # snippet.copy_count = int(count)
-            # snippet.copy_count += 1
+            count += 1
             snippet.save()
             return redirect("profile")
     else:
         form = SnippetForm()
 
-    return render(request, "snippets/profile.html", {"form": form})
+    return render(request, "snippets/profile.html", {"form": form, "org": original})

@@ -19,6 +19,6 @@ class Snippet(models.Model):
     original_snippet = models.ForeignKey(
         "self", on_delete=models.CASCADE, null=True, related_name="snippet_copies"
     )
-
+    copy_count = models.IntegerField(default=0)
     def __str__(self):
         return f"{self.title}"
