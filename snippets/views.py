@@ -33,12 +33,11 @@ def profile(request):
 
 @login_required
 def user_profile(request, username):
-    user = get_object_or_404(User, username=username)
-    snippets = user.snippets.filter(public=True)
+    snippets = request.user.snippets.filter(public=True)
     return render(
         request,
         "snippets/user_profile.html",
-        {"snippets": snippets, "username": username, "user": user},
+        {"snippets": snippets, "username": username, "user": request.user},
     )
 
 
@@ -78,7 +77,7 @@ def delete_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
     if request.method == "POST":
         snippet.delete()
-        return redirect(to="list_snippets")
+        return redirect(to="profile")
 
     return render(request, "snippets/delete_snippet.html", {"snippet": snippet})
 
