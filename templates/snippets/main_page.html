@@ -2,7 +2,7 @@
 {% load gravatar %}
 <div class="hero is-dark">
   {% if user.username %}
-<h1 class="subtitle has-text-white p-5 is-capitalized">{% gravatar user.email 50 "user@example.com" %} welcome, {{ user.username }}!</h1>
+<h1 class="subtitle has-text-white p-5"><span class="mr-2">{% gravatar user.email 50 "user@example.com" %}</span>  Welcome, {{ user.username }}!</h1>
 </div>
 {% endif %}
 <div class="search-container">
@@ -18,12 +18,11 @@
   </div>
 </div>
 <h2 class="title pl-5 pr-5 pt-5 has-text-centered">Global Public Snippets</h2>
-  <section class="container pt-5">
+  <section class="container pt-5 column is-two-thirds">
     {% for snippet in snippets %}
     <div class="snippet mb-6">
       <div>{% include 'snippets/_snippet_template.html' %}
       </div>
-    </div>
     <br>
     {% endfor %}
   </div>
