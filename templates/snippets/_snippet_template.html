@@ -10,12 +10,10 @@
   <div class="snippet-header-cont">
     <h2 class="title is-4 is-primary card-header p-3">{{ snippet.title }} | {{ snippet.lang }}</h2>
 
-    {% if user.pk != request.user.pk %}
     <form action="{% url 'copy_snippet' pk=snippet.pk %}" method="POST">
       {% csrf_token %}
       <button class="button is-primary">Copy</button>
     </form>
-    {% endif %} 
 
   </div>
   {% endif %}
