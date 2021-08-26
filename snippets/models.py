@@ -13,7 +13,7 @@ class User(AbstractUser):
 LANGUAGES = (
     ("markup", "MARKUP"),
     ("css", "CSS"),
-    ("clike", "C+"),
+    ("clike", "C++"),
     ("javascript", "JAVASCRIPT"),
     ("csharp", "C#"),
     ("csv", "CSV"),
@@ -34,7 +34,11 @@ class Snippet(models.Model):
     public = models.BooleanField(default=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="snippets")
     original_snippet = models.ForeignKey(
-        "self", on_delete=models.CASCADE, null=True, related_name="snippet_copies"
+        "self",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="snippet_copies",
     )
 
     def __str__(self):
