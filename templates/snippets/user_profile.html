@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %} {% load gravatar %} 
 <div class="hero is-dark">
   {% if username %}
-<h1 class="subtitle has-text-white p-5 is-capitalized">{% gravatar user.email 50 "user@example.com" %} {{ username }}'s Profile</h1>
+<h1 class="subtitle has-text-white p-5"><span class="mr-2">{% gravatar user.email 50 "user@example.com" %}</span> {{ username }}'s Profile</h1>
 </div>
 {% endif %}
 {% for snippet in snippets %}
