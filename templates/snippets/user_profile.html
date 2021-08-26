@@ -4,14 +4,15 @@
 <h1 class="subtitle has-text-white p-5"><span class="mr-2">{% gravatar user.email 50 "user@example.com" %}</span> {{ username }}'s Profile</h1>
 </div>
 {% endif %}
-<section class="is-flex">
+<section>
   <div class="container pt-5 column is-two-thirds">
     {% for snippet in snippets %}
     <div class="snippet mb-6">
       <div>{% include 'snippets/_snippet_template.html' %}</div>
     </div>
-    </div>
-    <br>
     {% endfor %}
   </div>
+</section>
+    <br>
+    
 {% endblock %}
